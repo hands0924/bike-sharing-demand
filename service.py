@@ -13,10 +13,10 @@ class Features(BaseModel):
     weather: int
     temp: float
     atemp: float
-    humidity: str
+    humidity: float
     windspeed: float
 
-bento_model = bentoml.sklearn.get("bike_sharing:latest")
+bento_model = bentoml.sklearn.get("bike_sharing_demand:latest")
 model_runner = bento_model.to_runner()
 
 svc = bentoml.Service("bike_sharing_regressor", runners=[model_runner])
